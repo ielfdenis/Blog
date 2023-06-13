@@ -1,2 +1,6 @@
-package com.denis.blog.enums;public class ERole {
+package com.denis.blog.enums;
+
+public enum ERole {
+    ROLE_USER,
+    ROLE_ADMIN
 }
