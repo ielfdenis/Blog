@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Set;
 @Data
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,8 +30,8 @@ public class User {
     @Column(length = 3000)
     private String password;
     @ElementCollection(targetClass = ERole.class)
-    @CollectionTable(name = "iser_role",
-    joinColumns = @JoinColumn("user_id"))
+    @CollectionTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"))
     private Set<ERole> roles = new HashSet<>();
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user", orphanRemoval = true)
     private List<Post> posts = new ArrayList<>();
